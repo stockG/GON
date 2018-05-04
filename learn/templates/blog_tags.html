@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Blog</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static "css/normalize.css" %}">
+    <link rel="stylesheet" href="{% static "css/skeleton.css" %}">
+    <link rel="stylesheet" href="{% static "css/blog.css" %}">
+    <link rel="stylesheet" href="{% static "css/tags.css" %}">
+</head>
+<body>
+    <div class="section header">
+        <div class="container">
+            <div class="row">
+                <div class="three columns">
+                    <a href="{% url 'blog' %}" class="logo">GON</a>
+                </div>
+                <div class="nine columns nav">
+                    <a class="button button-primary" href="{% url 'home' %}">Home</a>
+                    <a class="button" href="{% url 'blog_about' %}">About Me</a>
+                    <a class="button" href="{% url 'tags' %}">Tags</a>
+                </div>
+            </div>
+            <div class="row action">
+                <h1 class="heading">Tags</h1>
+                <h2 class="subheading">見えるものを疑え、見えないものを信じろ</h2>
+            </div>
+        </div>
+    </div>
+    <!-- info section -->
+    <div class="info">
+        <div class="boxes">
+            <div class="tags">
+                <div class="tags-name">
+                    {% for tag in tagGroup %}
+                      <a href="#{{ tag }}">{{ tag }}</a>
+                    {% empty %}
+                      <li>NO tags have been added yet.</li>
+                    {% endfor %}
+                </div>
+            </div>
+            {% for tag in tagGroup %}
+            <div class="tag-text">
+                <div class="search"></div>
+                <span id="{{ tag }}">{{ tag }}</span>
+                {% for article in articles %}
+                  {% if tag in article.tags.all %}
+                  <div class="preview">
+                    <a href="{% url 'blog_main' article.id %}">
+                      <h2 class="title">{{ article.title }}</h2>
+                      <h3 class="subtitle">{{ article.sub_title }}</h3>
+                    </a>
+                  </div>
+                  <hr>
+                  {% endif %}
+                {% endfor %}
+            {% empty %}
+              <li>NO tags have been added yet.</li>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</body>
+</html>

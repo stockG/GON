@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Blog</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static "css/normalize.css" %}">
+    <link rel="stylesheet" href="{% static "css/skeleton.css" %}">
+    <link rel="stylesheet" href="{% static "css/blog.css" %}">
+</head>
+<body>
+    <div class="section header">
+        <div class="container">
+            <div class="row">
+                <div class="three columns">
+                    <a href="{% url 'blog' %}" class="logo">GON</a>
+                </div>
+                <div class="nine columns nav">
+                    <a class="button button-primary" href="{% url 'home' %}">Home</a>
+                    <a class="button" href="{% url 'blog_about' %}">About Me</a>
+                    <a class="button" href="{% url 'tags' %}">Tags</a>
+                </div>
+            </div>
+            <div class="row action">
+                <div class="heading">{{ article_list.first.created_time|date:'M  Y' }}</div>
+                <span class="subheading">No Game No Waifu</span>
+            </div>
+        </div>
+    </div>
+    <!-- info section -->
+    <div class="info">
+        <div class="boxes">
+            <div class="main">
+                {% for article in article_list %}
+                <div class="preview">
+                  <a href="{% url 'blog_main' article.id %}">
+                    <h2 class="title">{{ article.title }}</h2>
+                    <h3 class="subtitle">{{ article.sub_title }}</h3>
+                    <div class="content">{{ article.text|safe|slice:"200" }}...</div>
+                  </a>
+                  <p class="meta">Posted by GON on {{ article.created_time|date:'M d, Y H:i' }}</p>
+                  <hr>
+                </div>
+                {% endfor %}
+                <div class="pagination">
+                    <span class="previous">
+                        {% if articles.has_previous %}
+                            <a href="?page={{ articles.previous_page_number }}">← Newer Posts</a>
+                        {% endif %}
+                    </span>
+                    <span class="next">
+                        {% if articles.has_next %}
+                            <a href="?page={{ articles.next_page_number }}">Older Posts →</a>
+                        {% endif %}
+                    </span>
+                </div>
+            </div>
+            <div class="sidebar">
+                <div class="tags">
+                    <hr>
+                    <h5><a href="#">FEATURED TAGS</a></h5>
+                    <div class="tags-name">
+                        {% for tag in tagGroup %}
+                          <a href="{% url 'tags' %}">{{ tag }}</a>
+                        {% empty %}
+                          <li>NO tags have been added yet.</li>
+                        {% endfor %}
+                    </div>
+                    <hr>
+                </div>
+                <div class="about">
+                    <h5><a href="#">ABOUT ME</a></h5>
+                    <a href="#"><img src="/static/images/kon.png" alt="kon" height="200px" width="200px"></a>
+                    <p class="underwrite">Let's Make Waifu Great Again！</p>
+                </div>
+                <div class="archive">
+                    <hr>                    
+                    <h5><a href="#">ARCHIVE</a></h5>
+                    <div class="article_date_box">
+                        {% for archive in archive_list %}
+                        <a href="{% url 'archive' %}?year={{ archive | slice:":4" }}&month={{ archive | slice:"5:7" }}">{{ archive }}</a>
+                        <!-- <a href="#">January 2018</a> -->
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

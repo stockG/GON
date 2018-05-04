@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Resume</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static "css/normalize.css" %}">
+    <link rel="stylesheet" href="{% static "css/skeleton.css" %}">
+    <link rel="stylesheet" href="{% static "css/resume.css" %}">
+</head>
+<body>
+    <!-- resume section -->
+    <div class="resume">
+        <div class="boxes">
+            <div class="person">
+                <div class="flip-container center-block">
+                    <div class="flipper">
+                        <div class="fornt">
+            
+                        </div>
+                        <div class="back">
+                            <dl>
+                                <dt>Age:</dt>
+                                <dd>24</dd>
+
+                                <dt>Phone:</dt>
+                                <dd>13427517985</dd>
+                                  
+                                <dt>Email:</dt>
+                                <dd>yidulu1508@gmail.com</dd>
+                                  
+                                <dt>Location:</dt>
+                                <dd>广州市越秀区</dd>
+                            </dl>
+                            <img src="/static/images/person_b.jpg" alt="person" width="120px" height="160px">
+                        </div>
+                    </div>
+                </div>
+            
+            </div>
+            <div class="message">
+                <h5>求职意向</h5>
+                <div class="purpose">
+                    <ul>
+                        <li>前端</li>
+                        <li>大数据统计分析</li>
+                        <li>交通工程相关</li>
+                    </ul>
+                    <br>
+                </div>
+                <h5>教育背景</h5>
+                <p>2012年9月至2016年7月，就读于广州大学土木工程学院，并取得交通工程专业学士学位。</p>
+
+                <h5>工作经验</h5>
+                <p style="text-indent:2em;">在广东方伟科技有限公司任职交通工程师期间，主要负责对车辆相关大数据进行分析与整理以及形成相关报告，主要项目经验如下：</p>
+                <p>1、负责每周广州市交通运行状况报告的数据调取、整理以及计算，将处理好的数据形成报告。</p>
+                <p>2、通过大数据对广州市大客车运行特征归纳，成功获取由广州交通研究所委托的广州市大客车运行特征每月分析报告该14万项目，为该项目主要负责人。</p>
+                <p>3、参与清远市清城区、清新区信号优化项目，主要工作有绘制路口CAD示意图，调查车流量与道路拥堵变化，操作信号机更换优化信号周期。</p>
+                <p>4、日常工作需要操作Oracle数据库对数据进行调取，运用GIS对广州市路网建立路口档案，使用Excel对数据进行归纳总结等。</p>
+
+                <h5>技能</h5>
+                <p>1、通过日语等级能力N1测试，能有基本听说写能力，兼职翻译。</p>
+                <p>2、能够运用Argis建立路网，关联数据库数据，对相关数据分析展示。</p>
+                <p>3、能够熟练使用office软件，了解excel函数以及vba的一些编写。</p>
+                <p>4、能够运用python通过Django来建立后台，有python的编程基础。</p>
+                <p>5、能够运用Html、Css和JavaScript编写自己网站，有相关基础。</p>
+
+                <h5>自我评价</h5>
+                <p style="text-indent:2em;">因为有上一份工作的经验，熟悉Oracle与MySQL关系型数据库，熟练掌握Excel的操作，同时擅长日文翻译；热爱编程，熟悉前端相关框架语言有Html、Css、jQuery、JavaScript等；同时也掌握python的编程基础，Django的MTV框架；熟悉基本的数据结构和算法，希望在3年内成为出色的前端工程师。</p>
+                <p>注：在广东方伟科技公司工作的时长是2016年12月至2017年2月，而2017年3月至今我是在家兼职的，是翻译以及股票投资为主。在这里我解释一下当时辞职以及在家兼职一年的原因吧：首先一个是当时我辞职前奶奶突然中风需要长期住院，而且我爷爷在家但是腿脚不方便需要人在家照顾，但我父母当时还没到退休的年龄没法照顾过来；第二个是我当时工资税前连4000都没有，再加家里离公司比较远车费也算是比较贵了，如果为了照顾家里老人就需要请个保姆或者护理就需要一个月7000以上，所以我再三考虑过后辞职了在家兼职同时学习前端的相关知识。</p>
+            </div>
+        </div>
+    </div>
+    <div class="nav">
+        <a href="#" class="btn btn-sm blue">Resume</a>
+        <a href="{% url 'blog' %}" class="btn btn-sm blue">Blog</a>
+        <a href="{% url 'animate' %}" class="btn btn-sm blue">Animate</a>
+        <a href="{% url 'home' %}" class="btn btn-sm blue">Home</a>
+    </div>
+</body>
+</html>

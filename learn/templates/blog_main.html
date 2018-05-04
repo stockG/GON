@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Blog</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static "css/normalize.css" %}">
+    <link rel="stylesheet" href="{% static "css/skeleton.css" %}">
+    <link rel="stylesheet" href="{% static "css/blog.css" %}">
+    <link rel="stylesheet" href="{% static "css/article.css" %}">
+</head>
+<body>
+    <div class="section header">
+        <div class="container">
+            <div class="row">
+                <div class="three columns">
+                    <a href="{% url 'blog' %}" class="logo">GON</a>
+                </div>
+                <div class="nine columns nav">
+                    <a class="button button-primary" href="{% url 'home' %}">Home</a>
+                    <a class="button" href="{% url 'blog_about' %}">About Me</a>
+                    <a class="button" href="{% url 'tags' %}">Tags</a>
+                </div>
+            </div>
+            <div class="row action">
+                <div class="tags-name">
+                    {% for tag in article.tags.all %}
+                      <a href="#">{{ tag }}</a>
+                    {% empty %}
+                      <li>NO tags have been added yet.</li>
+                    {% endfor %}
+                </div>
+                <h1 class="heading">{{ article.title }}</h1>
+                <h2 class="subheading">{{ article.sub_title }}</h2>
+                <p class="meta">Posted by GON on {{ article.created_time|date:'M d, Y H:i' }}</p>
+            </div>
+        </div>
+    </div>
+    <!-- info section -->
+    <div class="info">
+        <div class="boxes">
+            <div class="main">
+                <div class="preview">
+                  {% autoescape off %}   
+
+                  {{ article.text }}
+
+                  {% endautoescape %}
+                  <hr>
+                </div>
+            </div>
+            <div class="pagination">
+                <span class="previous">
+                    {% if previous_blog %}
+                        <a href="{% url 'blog_main' previous_blog.id %}">
+                            Previous
+                            <br>
+                            <span>{{ previous_blog.title }}</span>
+                        </a>
+                    {% endif %}
+                </span>
+                <span class="next">
+                    {% if next_blog %}
+                        <a href="{% url 'blog_main' next_blog.id %}">
+                            Next
+                            <br>
+                            <span>{{ next_blog.title }}</span>
+                        </a>
+                    {% endif %}
+                </span>
+            </div>
+            <div class="tags">
+                <hr>
+                <h5><a href="#">FEATURED TAGS</a></h5>
+                <div class="tags-name">
+                    {% for tag in tagGroup %}
+                      <a href="#">{{ tag }}</a>
+                    {% empty %}
+                      <li>NO tags have been added yet.</li>
+                    {% endfor %}
+                </div>
+                <hr>
+            </div>  
+        </div>
+    </div>
+</body>
+</html>

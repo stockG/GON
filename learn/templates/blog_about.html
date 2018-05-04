@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Blog</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static "css/normalize.css" %}">
+    <link rel="stylesheet" href="{% static "css/skeleton.css" %}">
+    <link rel="stylesheet" href="{% static "css/blog.css" %}">
+</head>
+<body>
+    <div class="section header">
+        <div class="container">
+            <div class="row">
+                <div class="three columns">
+                    <a href="{% url 'blog' %}" class="logo">GON</a>
+                </div>
+                <div class="nine columns nav">
+                    <a class="button button-primary" href="{% url 'home' %}">Home</a>
+                    <a class="button" href="{% url 'blog_about' %}">About Me</a>
+                    <a class="button" href="{% url 'tags' %}">Tags</a>
+                </div>
+            </div>
+            <div class="row action">
+                <div class="heading">About</div>
+                <span class="subheading">プロフィール</span>
+            </div>
+        </div>
+    </div>
+    <!-- info section -->
+    <div class="info">
+        <div class="boxes">
+            <div class="main">
+                <div class="profile">
+                    <p>喜欢研究股票，爱看动画，热衷打Shadowverse，玩手办——</p>
+                    <p>一个普通人です。</p>
+                    <p>目前正在绝赞求职中...</p>
+                    <h5>联系：</h5>
+                    <ul>
+                        <li><a href="https://space.bilibili.com/908455/#/">Bilibili</a></li>
+                        <li><a href="https://steamcommunity.com/id/597994580/">Steam</a></li>
+                        <li><a href="https://steamcommunity.com/id/597994580/">Weibo</a></li>
+                        <li><a href="http://music.163.com/#/playlist?id=74449438">网易云音乐</a></li>
+                    </ul>
+                    <h5>本站图片来源（致谢）：</h5>
+                    <ul>
+                        <li>Blog封面图来自<a href="https://www.pixiv.net/member_illust.php?mode=medium&illust_id=66764637">「さくら」/「こんぴ」のイラスト [pixiv]</a></li>
+                        <li>Blog头像图来自<a href="https://www.pixiv.net/member_illust.php?mode=medium&illust_id=66094861">「あずにゃん」/「たなし」のイラスト [pixiv]</a></li>
+                        <li>Game背图来自<a href="https://www.pixiv.net/member_illust.php?mode=medium&illust_id=62672794">「なんか体調悪いって聞いたから来てあげたんだけど！」/「ぐれーともす」のイラスト [pixiv]</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="sidebar">
+                <div class="tags">
+                    <hr>
+                    <h5><a href="#">FEATURED TAGS</a></h5>
+                    <div class="tags-name">
+                        {% for tag in tagGroup %}
+                          <a href="{% url 'tags' %}">{{ tag }}</a>
+                        {% empty %}
+                          <li>NO tags have been added yet.</li>
+                        {% endfor %}
+                    </div>
+                    <hr>
+                </div>
+                <div class="about">
+                    <h5><a href="#">ABOUT ME</a></h5>
+                    <a href="#"><img src="/static/images/kon.png" alt="kon" height="200px" width="200px"></a>
+                    <p class="underwrite">Let's Make Waifu Great Again！</p>
+                </div>
+                <div class="archive">
+                    <hr>                    
+                    <h5><a href="#">ARCHIVE</a></h5>
+                    <div class="article_date_box">
+                        {% for archive in archive_list %}
+                        <a href="{% url 'archive' %}?year={{ archive | slice:":4" }}&month={{ archive | slice:"5:7" }}">{{ archive }}</a>
+                        <!-- <a href="#">January 2018</a> -->
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,18 @@
+{% extends 'learn/base.html' %}
+{% load bootstrap3 %}
+
+{% block header %}
+  <h2>Add a new topic:</h2>
+{% endblock header %}
+
+{% block content %}
+  <form action="{% url 'new_topic' %}" method="post" class="form">
+    {% csrf_token %}
+    {% bootstrap_form form %}
+
+    {% buttons %}
+    <button name="submit" class="btn btn-info btn-lg">添加主题</button>
+    {% endbuttons %}
+  </form>
+
+{% endblock content %}

@@ -1,0 +1,253 @@
+/* Mobile first queries */
+html {
+    padding-top: 25px;
+    background-image: url(images/bg_page.png);
+}
+
+body {
+    width: 80%;
+    min-width: 1100px;
+    margin: 0 auto;
+    border-radius: 10px;
+    box-shadow: 10px 10px 10px rgba(0,0,0,.5);
+    background-color: #353535;
+  }
+
+.boxes {
+    display: flex;
+    flex-flow: row nowrap;
+    margin: 0 auto;
+}
+
+.person {
+    background: hsl(20, 40%, 90%);
+    background-image: 
+	    linear-gradient(90deg, #fb3 11px, transparent 0),
+	    linear-gradient(90deg, #ab4 23px, transparent 0),
+	    linear-gradient(90deg, #655 23px, transparent 0);
+    background-size: 83px 100%, 61px 100%, 41px 100%;
+    overflow: hidden;
+    flex: 1;
+    max-width: 1000px;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+.message {
+    flex: 1;
+    background-color: rgb(50,122,167);
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+h5 {
+    color: rgb(255,255,255);
+    font-family: Arial, "Palatino Linotype", Times, serif;
+    border-bottom: 2px solid rgb(87,185,178);
+    padding-top: 10px;
+    padding-left: 40px;
+    padding-bottom: 5px;
+    font-weight: bold;
+    background: url(images/head-icon.png) no-repeat 10px 15px;    
+}
+
+p, .purpose ul li {
+    color: #fff;
+    font-size: 1.2em;
+    line-height: 1.4;
+    font-family: "Varela Round", Arial, Helvetica, sans-serif;
+    margin-left: 40px;
+    margin-right: 10px;
+}
+
+/* person */
+.flip-container{
+    box-sizing: content-box;
+    perspective: 1000px;
+    margin: 50vh auto 0;
+    transform: translateY(-50%);
+}
+.flipper{
+    transition: 1s;
+    position: relative;
+    transform-style: preserve-3d;
+}
+.flip-container, .fornt, .back{
+    width: 320px;
+    height: 480px;
+}
+.fornt, .back{
+    backface-visibility: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.fornt{
+    background-image: url(/static/images/person.jpg);
+    background-size: cover;
+    background-color: #4a71ba;
+    transform: rotateY(0deg);
+    z-index: 2;
+}
+.back{
+    background-color: #fff;
+    transform: rotateY(180deg);
+}
+.flip-container:hover .flipper{
+  transform: rotateY(180deg);
+}
+/* end person */
+
+dl {
+    position: absolute;
+    top: calc(50% - 50px);
+    left: calc(50% - 105px);
+    width: 210px;
+    height: 100px;
+}
+
+dt, dd {
+    display: inline;
+}
+dd {
+    margin: 0;
+    font-weight: bold;
+}
+dd + dt::before {
+    content: "\A";
+    white-space: pre;
+}
+dd + dd::before {
+    content: ', ';
+    font-weight: normal;
+    margin-left: -.25em;
+}
+
+.back img {
+    margin-top: 20px;
+    margin-left: calc(50% - 60px);
+}
+
+.purpose ul li {
+    float: left;
+    list-style: none;   
+}
+
+.purpose {
+    padding-bottom: 10px;
+}
+
+/* Global Button Styles */
+a.animated-button:link, a.animated-button:visited {
+	position: relative;
+	display: block;
+	margin: 30px auto 0;
+	padding: 14px 15px;
+	color: #fff;
+	font-size:14px;
+	font-weight: bold;
+	text-align: center;
+	text-decoration: none;
+	text-transform: uppercase;
+	overflow: hidden;
+	letter-spacing: .08em;
+	border-radius: 0;
+	text-shadow: 0 0 1px rgba(0, 0, 0, 0.2), 0 1px 0 rgba(0, 0, 0, 0.2);
+	-webkit-transition: all 1s ease;
+	-moz-transition: all 1s ease;
+	-o-transition: all 1s ease;
+	transition: all 1s ease;
+}
+a.animated-button:link:after, a.animated-button:visited:after {
+	content: "";
+	position: absolute;
+	height: 0%;
+	left: 50%;
+	top: 50%;
+	width: 150%;
+	z-index: -1;
+	-webkit-transition: all 0.75s ease 0s;
+	-moz-transition: all 0.75s ease 0s;
+	-o-transition: all 0.75s ease 0s;
+	transition: all 0.75s ease 0s;
+}
+a.animated-button:link:hover, a.animated-button:visited:hover {
+	color: #FFF;
+	text-shadow: none;
+}
+a.animated-button:link:hover:after, a.animated-button:visited:hover:after {
+	height: 450%;
+}
+a.animated-button:link, a.animated-button:visited {
+	position: relative;
+	display: block;
+	margin: 30px auto 0;
+	padding: 14px 15px;
+	color: #fff;
+	font-size:14px;
+	border-radius: 0;
+	font-weight: bold;
+	text-align: center;
+	text-decoration: none;
+	text-transform: uppercase;
+	overflow: hidden;
+	letter-spacing: .08em;
+	text-shadow: 0 0 1px rgba(0, 0, 0, 0.2), 0 1px 0 rgba(0, 0, 0, 0.2);
+	-webkit-transition: all 1s ease;
+	-moz-transition: all 1s ease;
+	-o-transition: all 1s ease;
+	transition: all 1s ease;
+}
+
+/* Victoria Buttons */
+
+a.animated-button.victoria-one {
+	border: 2px solid #D24D57;
+}
+a.animated-button.victoria-one:after {
+	background: #D24D57;
+	-moz-transform: translateX(-50%) translateY(-50%) rotate(-25deg);
+	-ms-transform: translateX(-50%) translateY(-50%) rotate(-25deg);
+	-webkit-transform: translateX(-50%) translateY(-50%) rotate(-25deg);
+	transform: translateX(-50%) translateY(-50%) rotate(-25deg);
+}
+a.animated-button.victoria-two {
+	border: 2px solid #D24D57;
+}
+a.animated-button.victoria-two:after {
+	background: #D24D57;
+	-moz-transform: translateX(-50%) translateY(-50%) rotate(25deg);
+	-ms-transform: translateX(-50%) translateY(-50%) rotate(25deg);
+	-webkit-transform: translateX(-50%) translateY(-50%) rotate(25deg);
+	transform: translateX(-50%) translateY(-50%) rotate(25deg);
+}
+a.animated-button.victoria-three {
+	border: 2px solid #D24D57;
+}
+a.animated-button.victoria-three:after {
+	background: #D24D57;
+	opacity: .5;
+	-moz-transform: translateX(-50%) translateY(-50%);
+	-ms-transform: translateX(-50%) translateY(-50%);
+	-webkit-transform: translateX(-50%) translateY(-50%);
+	transform: translateX(-50%) translateY(-50%);
+}
+a.animated-button.victoria-three:hover:after {
+	height: 140%;
+	opacity: 1;
+}
+a.animated-button.victoria-four {
+	border: 2px solid #D24D57;
+}
+a.animated-button.victoria-four:after {
+	background: #D24D57;
+	opacity: .5;
+	-moz-transform: translateY(-50%) translateX(-50%) rotate(90deg);
+	-ms-transform: translateY(-50%) translateX(-50%) rotate(90deg);
+	-webkit-transform: translateY(-50%) translateX(-50%) rotate(90deg);
+	transform: translateY(-50%) translateX(-50%) rotate(90deg);
+}
+a.animated-button.victoria-four:hover:after {
+	opacity: 1;
+	height: 600% !important;
+}

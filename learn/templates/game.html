@@ -1,0 +1,225 @@
+{% extends 'learn/base.html' %}
+
+{% block header %}
+  <div class="jumbotron">
+    <h1>Little game.</h1>
+  </div>
+{% endblock header %}
+
+{% block content %}
+
+{% load static %}
+
+<div class="gametitle">
+  <audio controls="controls" id="player" hidden="true" loop="true">
+    <source src="../static/LegendsNeverDie.mp3">
+  </audio>
+  <input type="button" value="开始游戏" id="timestart">
+  <!-- <input type="text" value="00:00"> -->
+  <p>所用时间 <strong id="time">00:00</strong></p>
+  <input type="button" value="暂停" id="timeend">
+  <input type="button" value="重新开始" id="restart">
+  <p class="float-right">得分 <strong id="score">0</strong></p>
+</div>
+<div class="lovelive">
+  <div class="eli">
+    <div class="flip-container-lovelive">
+    <div class="flipper-lovelive">
+      <div class="fornt-lovelive">
+        fornt
+      </div>
+      <div class="back-lovelive">
+      </div>
+    </div>
+  </div>
+  </div>
+  <div class="umi">
+    <div class="flip-container-lovelive">
+    <div class="flipper-lovelive">
+      <div class="fornt-lovelive">
+        fornt
+      </div>
+      <div class="back-lovelive">
+      </div>
+    </div>
+  </div>
+  </div>
+  <div class="hanayo">
+    <div class="flip-container-lovelive">
+    <div class="flipper-lovelive">
+      <div class="fornt-lovelive">
+        fornt
+      </div>
+      <div class="back-lovelive">
+      </div>
+    </div>
+  </div>
+  </div>
+  <div class="honoka">
+    <div class="flip-container-lovelive">
+    <div class="flipper-lovelive">
+      <div class="fornt-lovelive">
+        fornt
+      </div>
+      <div class="back-lovelive">
+      </div>
+    </div>
+  </div>
+  </div>
+  <div class="kotori">
+    <div class="flip-container-lovelive">
+    <div class="flipper-lovelive">
+      <div class="fornt-lovelive">
+        fornt
+      </div>
+      <div class="back-lovelive">
+      </div>
+    </div>
+  </div>
+  </div>
+  <div class="maki">
+    <div class="flip-container-lovelive">
+    <div class="flipper-lovelive">
+      <div class="fornt-lovelive">
+        fornt
+      </div>
+      <div class="back-lovelive">
+      </div>
+    </div>
+  </div>
+  </div>
+  <div class="nico">
+    <div class="flip-container-lovelive">
+    <div class="flipper-lovelive">
+      <div class="fornt-lovelive">
+        fornt
+      </div>
+      <div class="back-lovelive">
+      </div>
+    </div>
+  </div>
+  </div>
+  <div class="nozomi">
+    <div class="flip-container-lovelive">
+    <div class="flipper-lovelive">
+      <div class="fornt-lovelive">
+        fornt
+      </div>
+      <div class="back-lovelive">
+      </div>
+    </div>
+  </div>
+  </div>
+  <div class="rin">
+    <div class="flip-container-lovelive">
+    <div class="flipper-lovelive">
+      <div class="fornt-lovelive">
+        fornt
+      </div>
+      <div class="back-lovelive">
+      </div>
+    </div>
+  </div>
+  </div>
+  <div class="eli2">
+    <div class="flip-container-lovelive">
+    <div class="flipper-lovelive">
+      <div class="fornt-lovelive">
+        fornt
+      </div>
+      <div class="back-lovelive">
+      </div>
+    </div>
+  </div>
+  </div>
+  <div class="umi2">
+    <div class="flip-container-lovelive">
+    <div class="flipper-lovelive">
+      <div class="fornt-lovelive">
+        fornt
+      </div>
+      <div class="back-lovelive">
+      </div>
+    </div>
+  </div>
+  </div>
+  <div class="hanayo2">
+    <div class="flip-container-lovelive">
+    <div class="flipper-lovelive">
+      <div class="fornt-lovelive">
+        fornt
+      </div>
+      <div class="back-lovelive">
+      </div>
+    </div>
+  </div>
+  </div>
+  <div class="kotori2">
+    <div class="flip-container-lovelive">
+    <div class="flipper-lovelive">
+      <div class="fornt-lovelive">
+        fornt
+      </div>
+      <div class="back-lovelive">
+      </div>
+    </div>
+  </div>
+  </div>
+  <div class="maki2">
+    <div class="flip-container-lovelive">
+    <div class="flipper-lovelive">
+      <div class="fornt-lovelive">
+        fornt
+      </div>
+      <div class="back-lovelive">
+      </div>
+    </div>
+  </div>
+  </div>
+  <div class="nico2">
+    <div class="flip-container-lovelive">
+    <div class="flipper-lovelive">
+      <div class="fornt-lovelive">
+        fornt
+      </div>
+      <div class="back-lovelive">
+      </div>
+    </div>
+  </div>
+  </div>
+  <div class="nozomi2">
+    <div class="flip-container-lovelive">
+    <div class="flipper-lovelive">
+      <div class="fornt-lovelive">
+        fornt
+      </div>
+      <div class="back-lovelive">
+      </div>
+    </div>
+  </div>
+  </div>
+  <div class="rin2">
+    <div class="flip-container-lovelive">
+    <div class="flipper-lovelive">
+      <div class="fornt-lovelive">
+        fornt
+      </div>
+      <div class="back-lovelive">
+      </div>
+    </div>
+  </div>
+  </div>
+  <div class="honoka2">
+    <div class="flip-container-lovelive">
+    <div class="flipper-lovelive">
+      <div class="fornt-lovelive">
+        fornt
+      </div>
+      <div class="back-lovelive">
+      </div>
+    </div>
+  </div>
+  </div>
+</div>
+
+{% endblock content %}

@@ -1,0 +1,102 @@
+{% load bootstrap3 %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>GON</title>
+  {% bootstrap_css %}
+  {% bootstrap_javascript %}
+  {% load static %}
+  <link rel="stylesheet" href="{% static "css/jquery-ui.min.css" %}">
+  <link rel="stylesheet" href="{% static "css/person.css" %}">
+  <script type="text/javascript" src="{% static "js/jquery.min.js" %}"></script>
+  <script type="text/javascript" src="{% static "js/jquery-ui.min.js" %}"></script>
+  <script type="text/javascript" src="{% static "js/game.js" %}"></script>
+  <style>
+    /* .container-samll{
+      max-width: 500px;
+    } */
+    body {
+        display: flex;
+        flex-flow: column;
+        min-height: 100vh;
+    }
+    .main {
+        flex: 1;
+    }
+    footer {
+        margin-top: 15px;
+        font-size: 1.1em;
+        padding: 10px;
+        background-color: #353535;
+        color: rgb(204,204,204);
+        text-align: center;  
+    }
+    footer a {
+        color: white;
+    }
+  </style>
+</head>
+<body>
+
+ <!-- Navbar -->
+ <nav class="navbar navbar-inverse navbar-static-top">
+   <div class="container">
+
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed"
+                data-toggle="collapse" data-target="#navbar"
+                aria-expanded="true" aria-controls="navbar">
+        </button>
+        <a class="navbar-brand" href="{% url 'home' %}">NoteBook</a>
+      </div>
+
+      <div id="navbar" class="navbar-collapse collapse">
+        <ul class="nav navbar-nav">
+          <li><a href="{% url 'topics' %}">Topics</a></li>
+          <li><a href="{% url 'game' %}">Game</a></li>
+          <li><a href="{% url 'animate' %}">Animate</a></li>
+          <li><a href="{% url 'blog' %}">Blog</a></li>
+          <li><a href="{% url 'resume' %}">Resume</a></li>
+        </ul>
+
+        <ul class="nav navbar-nav navbar-right">
+          {% if user.is_authenticated %}
+            <li><a>Hello, {{ user.username }}.</a></li>
+            <li><a href="{% url 'logout' %}">Log Out</a></li>
+          {% else %}
+            <li><a href="{% url 'register' %}">Register</a></li>
+            <li><a href="{% url 'login' %}">Log In</a></li>
+          {% endif %}
+        </ul>
+      </div><!--/.nav-collapse -->
+    </div>
+  </nav>
+
+  <div class="main">
+    <div class="container">
+        <div class="page-header">
+        {% block header %}
+        <div>标题（Topics）</div>
+        {% endblock header %}
+        </div>
+        <div>
+        {% block content %}
+        <div>这里是默认内容，所有继承自这个模板的，如果不覆盖就显示这里的默认内容。</div>
+        {% endblock content %}
+        </div><!-- /container -->
+    </div>
+  </div>
+
+  <footer>
+    <div class="container">
+        <p>Copyright © GON 2018 </p>
+        <p>Contact: <a href="mailto:yidelu1508@gmail.com">yidelu1508@gmail.com</a></p>
+    </div>
+  </footer>
+
+</body>
+</html>

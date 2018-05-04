@@ -1,0 +1,9 @@
+<img src="{% static "images/Eli.jpg" %}" alt="my" height="175px" width="175px">
+<img src="{% static "images/Umi.jpg" %}" alt="my" height="175px" width="175px">
+<img src="{% static "images/Honoka.jpg" %}" alt="my" height="175px" width="175px">
+<img src="{% static "images/Hanayo.jpg" %}" alt="my" height="175px" width="175px">
+<img src="{% static "images/Kotori.jpg" %}" alt="my" height="175px" width="175px">
+<img src="{% static "images/Maki.jpg" %}" alt="my" height="175px" width="175px">
+<img src="{% static "images/Nico.jpg" %}" alt="my" height="175px" width="175px">
+<img src="{% static "images/Nozomi.jpg" %}" alt="my" height="175px" width="175px">
+<img src="{% static "images/Rin.jpg" %}" alt="my" height="175px" width="175px">

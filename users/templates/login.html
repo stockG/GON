@@ -1,0 +1,27 @@
+{% extends 'learn/base.html' %}
+{% load bootstrap3 %}
+
+
+{% block header %}
+  <h2>Log in to your account.</h2>
+{% endblock header %}
+
+{% block content %}
+<div class="container container-samll">
+
+  {% if form.errors %}
+  <h4 class="alert alert-warning">Your username and password didn't match. Pealse try again.</h4>
+  {% endif %}
+
+  <form action="{% url 'login' %}" method="post" class="form">
+    {% csrf_token %}
+    {% bootstrap_form form %}
+
+    {% buttons %}
+    <button name="submit" class="btn btn-primary btn-block">登陆</button>
+    {% endbuttons %}
+
+    <input type="hidden" name="next" value="{% url 'home' %}">
+  </form>
+</div>
+{% endblock content %}

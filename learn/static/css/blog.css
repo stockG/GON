@@ -1,0 +1,339 @@
+/* Mobile first queries */
+/* applies to ALL widths */
+a {
+    text-decoration: none;
+    color: black;
+}
+.header {
+  padding: 30px 0 20px 0;
+  background-image: url(/static/images/header.jpg);
+  background-size: cover;
+  background-position:center;
+}
+.logo {
+  text-decoration: none;
+  font-weight: 600;
+  color: rgb(255, 209, 143);
+  background-color: black;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding-left: 10px;
+  z-index: 100;
+}
+.logo:hover {
+    color:  rgba(255, 209, 143, .8);
+}
+.nav {
+  text-align: center;
+}
+.nav .button {
+  width: 48%;
+  margin: 2px 0;
+}
+.button {
+  background-color: rgba(255, 255, 255, .5);
+}
+.button:hover {
+  background-color: rgba(255, 255, 255, .3);
+}
+.action {
+  text-align: center;
+  padding-top: 37px;
+  /* color: rgb(156, 210, 247); */
+}
+.action div {
+  margin: 0;
+}
+.action span {
+  margin: 0 0 20px 0;
+}
+.heading {
+  font-size: 4rem;
+}
+.subheading {
+  font-size: 2.5rem;
+}
+/* 主内容区 */
+::selection {
+    color: #fff;
+    text-shadow: none;
+    background: #0085a1;
+}
+::-moz-selection {
+    color: #fff;
+    text-shadow: none;
+    background: #0085a1;
+}
+hr {
+    margin: 30px 0 0 0;
+}
+.main {
+    margin: 0 14px;
+}
+.title {
+    font-size: 2.5rem;
+    font-weight: 600;
+    margin-top: 30px;
+    margin-bottom: 8px;
+}
+.subtitle {
+    font-size: 1.8rem;
+    margin: 0 0 10px 0;
+}
+.content {
+    font-size: 1.3rem;
+    color: #a3a3a3;
+    font-style: italic;
+}
+.meta {
+    font-size: 1.6rem;
+    color: gray;
+    font-style: italic;
+    margin: 3px 0 30px 0;
+}
+.title:hover, .content:hover, .title:hover + .subtitle {
+    color: #0085a1;
+}
+.tags h5 {
+    margin-bottom: 1rem;
+}
+h5 a {
+    color: gray;
+    font-size: 1.4rem;
+    font-weight: 700;
+    text-decoration: none;
+    margin-left: 8px;
+}
+.tags-name {
+    margin-left: 8px;
+    margin-bottom: -10px;
+}
+.tags-name > a {
+    text-decoration: none;
+    display: inline-block;
+    margin: 2px 5px 6px 0;
+    padding: 0 10px;
+    border: 1px solid #bfbfbf;
+    border-radius: 999rem;
+    color: #bfbfbf;
+    line-height: 24px;
+    font-size: 1.5rem;
+}
+h5 a:hover, a:hover {
+    color: #0085a1;
+    border-color: inherit;
+}
+.about > a {
+    margin-left: calc(50% - 100px);
+}
+.about a img {
+    border-radius: 50%;
+    transition: .5s filter;
+    filter: sepia(1) saturate(4) hue-rotate(295deg);
+}
+.about a img:hover, .about a img:focus {
+    filter: none;
+}
+.underwrite {
+    margin-top: 10px;
+    color: #bfbfbf;
+    text-align: center;
+}
+.article_date_box > a {
+    position: relative;
+    text-decoration: none;
+    display: block;
+    text-align: center;
+    color: black;
+    margin: 0 65px 5px 65px;
+}
+.article_date_box > a::before {
+    content: '';
+    position: absolute;
+    top: 0; right: 0; bottom: 0; left: 0;
+    z-index: -1;
+    background: #d8d8d8;
+    transform: skew(-45deg);
+}
+.article_date_box > a:hover {
+    color: #fff;
+}
+.article_date_box > a:hover::before {
+    background: #0085a1;
+}
+.pagination {
+    margin-top: 20px;
+    margin-bottom: 120px;
+}
+.pagination a {
+    font-size: 1.6rem;
+    text-transform: uppercase;
+    border: 1px solid #ddd;
+    padding: 15px 25px;
+    text-align: center;
+}
+.pagination .previous>a {
+    float: left;
+}
+.pagination .next>a {
+    float: right;
+}
+.pagination a:hover, .pagination a:hover > span {
+    background-color: #0085a1;
+    color: #fff;
+}
+.pagination a span {
+    font-size: 1.3rem;
+    color: #a3a3a3;
+}
+/* blog_about */
+.profile p {
+    display: block;
+    font-size: 1.6rem;
+    line-height: 1.7;
+    margin: 30px 0;
+}
+.profile h5 {
+    font-size: 1.9rem;
+    font-weight: 600;
+    line-height: 1.1;
+    color: gray;
+}
+.profile ul li {
+    margin-left: 35px;
+    font-size: 1.6rem;
+    line-height: 1.7;
+    list-style-type: disc;
+}
+.profile a {
+    color: #337ab7;
+}
+.profile a:hover {
+    text-decoration:underline;
+}
+/* end blog_about */
+
+/* Larger than mobile */
+/* applies to all widths 400px and greater */
+@media (min-width: 400px) {
+
+}
+
+/* Larger than phablet */
+/* applies to all widths 550px and greater */
+@media (min-width: 550px) {
+  .header {
+    padding: 15px 0 80px 0;
+  }
+  .logo {
+    position: static;
+    background-color: transparent;
+    font-size: 3rem;
+    line-height: 1;
+  }
+  .nav {
+    text-align: right;
+  }
+  .nav .button {
+    width: auto;
+  }
+  .action {
+    padding-top: 43px;
+  }
+  .heading {
+    font-size: 5rem;
+  }
+  .subheading {
+    font-size: 3.2rem;
+  }
+}
+
+/* Larger than tablet */
+
+/* applies to all widths 750px and greater */
+@media (min-width: 750px) {
+  .header {
+    padding: 15px 0 100px 0;
+  }
+  .logo {
+    font-size: 4rem;
+    position: relative;
+    top: 5px;
+  }
+  .action {
+    padding-top: 48px;
+  }
+  .heading {
+    font-size: 6rem;
+  }
+  .subheading {
+    font-size: 3.8rem;
+  }
+}
+
+/* Larger than desktop */
+/* applies to all widths 1000px and greater */
+@media (min-width: 1000px) {
+  .header {
+      padding: 15px 0 140px 0;
+    }
+  .action {
+      padding-top: 55px;
+  }
+  .heading {
+    font-size: 7rem;
+  }
+  .subheading {
+    font-size: 4.2rem;
+  }
+  .boxes {
+    display: flex;
+    flex-flow: row nowrap;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  .main {
+    flex: 3;
+  }
+  .sidebar {
+    flex: 1;
+    padding-left: 30px;
+  }
+  .title {
+      font-size: 2.8rem;
+      font-weight: 700;
+  }
+  .subtitle {
+      font-size: 1.9rem;
+      font-weight: 300;
+  }
+  .content {
+      font-size: 1.5rem;
+  }
+  .meta {
+      font-size: 1.7rem;
+  }
+}
+
+/* Larger than Desktop HD */
+/* applies to 1200px and greater */
+@media (min-width: 1200px) {
+  .header {
+      padding: 15px 0 160px 0;
+    }
+  .action {
+      padding-top: 80px;
+  }
+  .heading {
+    font-size: 8rem;
+  }
+  .subheading {
+    font-size: 4.2rem;
+  } 
+  .boxes {
+      max-width: 1200px;
+  }
+}
